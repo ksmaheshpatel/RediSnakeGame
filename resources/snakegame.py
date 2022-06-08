@@ -9,7 +9,7 @@ BACKGROUND_COLOR = (110, 110, 5)
 class Redio:
     def __init__(self, parent_screen):
         self.parent_screen = parent_screen
-        self.image = pygame.image.load("resources/redio.jpg").convert()
+        self.image = pygame.image.load("resources/redio.png").convert()
         self.x = 120
         self.y = 120
 
