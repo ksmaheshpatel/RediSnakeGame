@@ -45,12 +45,11 @@ class Snake:
             self.direction = 'down'
 
     def walk(self):
-            # update body
+
         for i in range(self.length - 1, 0, -1):
             self.x[i] = self.x[i - 1]
             self.y[i] = self.y[i - 1]
 
-            # update head
         if self.direction == 'left':
                 self.x[0] -= SIZE
         if self.direction == 'right':
@@ -79,7 +78,6 @@ class Game:
         pygame.display.set_caption("REDI Snake game Project")
 
         pygame.mixer.init()
-#        self.play_background_music()
 
         self.surface = pygame.display.set_mode((1000, 800))
         self.snake = Snake(self.surface)
@@ -117,13 +115,11 @@ class Game:
         self.display_score()
         pygame.display.flip()
 
-        # snake eating redio scenario
         if self.is_collision(self.snake.x[0], self.snake.y[0], self.redio.x, self.redio.y):
             self.play_sound("ding")
             self.snake.increase_length()
             self.redio.move()
 
-        # snake colliding with itself
         for i in range(3, self.snake.length):
             if self.is_collision(self.snake.x[0], self.snake.y[0], self.snake.x[i], self.snake.y[i]):
                 self.play_sound('crash')
